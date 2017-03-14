@@ -1,6 +1,7 @@
 import Vue from 'vue'
+import vueRouter from 'vue-router'
 import App from './App.vue'
-const iView = require('./iView/iview.js')
+// import iView from './iView'
 // import './iView/styles/iview.css'
 
 
