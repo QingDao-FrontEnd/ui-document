@@ -9,11 +9,11 @@ process.env.NODE_ENV = 'production'
 module.exports = merge(webpackBaseConfig, {
     entry: {
         main: './src/main.js',
-        vendors: ['vue','vue-router']
+        vendors: ['vue','vue-router','./src/iview']
     },
     output: {
         path: path.resolve(__dirname, '../prod'),
-        // publicPath: '/prod/',
+        publicPath: '',
         filename: '[name].js'
     },
     module: {

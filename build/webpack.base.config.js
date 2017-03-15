@@ -1,5 +1,6 @@
-var path = require('path')
-var webpack = require('webpack')
+const path = require('path')
+const webpack = require('webpack')
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 module.exports = {
     module: {
@@ -22,11 +23,16 @@ module.exports = {
             exclude: /node_modules/
         }, {
             test: /\.css$/,
-            use: [
-                'style-loader',
-                'css-loader',
-                // 'autoprefixer-loader'
-            ]
+            use: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: ['css-loader']
+            })
+        }, {
+            test: /\.less$/,
+            use: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: ['css-loader', 'less-loader']
+            })
         }, {
             test: /\.(png|jpg|gif|woff|svg|eot|ttf)$/,
             loader: 'file-loader',
@@ -36,10 +42,13 @@ module.exports = {
         }]
     },
     resolve: {
-        extensions: ['.js', '.vue'],
+        extensions: ['.js', '.less', '.vue'],
         // 使用了全局组件，主要在浏览器中编译，设置别名加载完整版vue，否则可不设置别名，仅加载run-time版vue
         alias: {
             'vue$': 'vue/dist/vue.esm.js'
         }
-    }
+    },
+    plugins: [
+        new ExtractTextPlugin("style.css")
+    ]
 }
