@@ -1,0 +1,17 @@
+[
+    {
+        "name":"仪表盘",
+        "path":"dashboard"
+    },{
+        "name":"Group1",
+        "path":"path1",
+        "children":[{
+            "name":"name1",
+            "path":"child1"
+        },{
+            "name":"name2",
+            "path":"child2"
+        }]
+    }
+
+]
