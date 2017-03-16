@@ -13,8 +13,8 @@ var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 module.exports = merge(webpackBaseConfig, {
     // 入口
     entry: {
-        main:'./src/main.js',
-        vendors: ['vue','vue-router','./src/iview']
+        main: './src/main.js',
+        vendors: ['vue', 'vue-router', './src/iview']
     },
     // 输出
     output: {
@@ -30,6 +30,20 @@ module.exports = merge(webpackBaseConfig, {
                 minimize: false
             }
         }]
+    },
+    devServer: {
+        stats: {
+            colors: true
+        },
+        proxy: {
+            '/json': {
+                target: 'http://10.101.64.45:8080',
+                pathRewrite: {
+                    '^/json': '/ui-document/json'
+                },
+                changeOrigin: true
+            }
+        }
     },
     // resolve: {
     //     alias: {

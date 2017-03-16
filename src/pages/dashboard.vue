@@ -1,5 +1,5 @@
 <template>
-    <h3>仪表盘</h3>
+    <h2>dashboard</h2>
 </template>
 <script>
     export default {

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
 import iView from './iview'
-import routes from './routes'
+// import routes from './routes'
 import './iview/styles'
 
 import locale from './iview/locale/lang/zh-CN'
@@ -17,7 +17,7 @@ Vue.use(iView, {
 Vue.config.debug = true;
 
 const router = new VueRouter({
-    routes
+
 })
 
 new Vue({
@@ -25,3 +25,5 @@ new Vue({
     router,
     render: h => h(App)
 })
+
+window.Vue = Vue
