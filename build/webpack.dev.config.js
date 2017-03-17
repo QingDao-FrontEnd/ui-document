@@ -45,6 +45,7 @@ module.exports = merge(webpackBaseConfig, {
             }
         }
     },
+    devtool: '#source-map',
     // resolve: {
     //     alias: {
     //         iview: '../../src/index',

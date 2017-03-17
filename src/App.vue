@@ -152,7 +152,8 @@ body {
 
 <script>
 
-// import menu from './json/menu.json'
+import menu from '../json/menu.json'
+import routes from './routes'
 
 export default {
     data() {
@@ -169,9 +170,9 @@ export default {
 
         },
         mounted() {
-            fetch('json/menu.json').then((res) => {
-                return res.json()
-            }).then((menu) => {
+            // fetch('json/menu.json').then((res) => {
+            //     return res.json()
+            // }).then((menu) => {
                 this.menu = menu
                 this.activedMenu = this.$route.path
                 let open = this.$route.path.split('/')
@@ -181,20 +182,11 @@ export default {
                 this.$nextTick(() => {
                     this.$refs.menu.updateActiveName()
                     this.$refs.menu.updateOpened()
-
                 })
-                this.$router.addRoutes([{
-                    path: '/dashboard',
-                    component: resolve => {
-                        require.ensure(['./pages/dashboard.vue'], () => {
-                            resolve(require('./pages/dashboard.vue'))
-                        })
-                    }
-                }])
-            }).catch((err) => {
-                console.dir(err);
-                console.log('出错了')
-            })
+                this.$router.addRoutes(routes)
+            // }).catch((err) => {
+            //     console.dir(err);
+            // })
 
         }
 }

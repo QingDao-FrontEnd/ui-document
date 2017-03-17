@@ -1,7 +1,8 @@
-
-
-
 export default [{
     path: '/dashboard',
-    component: require('./pages/dashboard.vue')
+    component: resolve => {
+        require.ensure(['./pages/dashboard.vue'], () => {
+            resolve(require('./pages/dashboard.vue'))
+        })
+    }
 }]

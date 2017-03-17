@@ -3,6 +3,7 @@ var webpack = require('webpack')
 var merge = require('webpack-merge')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var webpackBaseConfig = require('./webpack.base.config.js')
+// var rimraf = require('rimraf')
 
 process.env.NODE_ENV = 'production'
 
